@@ -21,9 +21,10 @@ data_train <- read.table("X_train.txt")
 setwd("")
 features <- read.table("features.txt", stringsAsFactors = FALSE)
 features <- features$V2
+features <- sub("\\()","-",features)
 colnames(data_train) <- features
 
-data_train <- data_train[grepl("-mean..-|-std..-", names(data_train))]
+data_train <- data_train[grepl("-mean-|-std-", names(data_train))]
 
 ## Merging data sets
 trainComplete <- cbind(subject_train, activity_train, data_train)
@@ -43,7 +44,7 @@ activity_test <- rename(activity_test, Activity = V1)
 #Sensors data preparation
 data_test <- read.table("X_test.txt")
 colnames(data_test) <- features
-data_test <- data_test[grepl("-mean..-|-std..-", names(data_test))]
+data_test <- data_test[grepl("-mean-|-std-", names(data_test))]
 ##Merging data sets
 testComplete <- cbind(subject_test, activity_test, data_test)
 
