@@ -1,4 +1,5 @@
 ## Getting and Cleaning Data Project
+### For personal reasons the directories names are not shown on the R Script
 
 The R script does the following:
 
